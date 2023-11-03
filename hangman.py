@@ -8,6 +8,8 @@ def get_random_word(wordlist="/usr/share/dict/words"):
         for word in words:
             if not word.islower(): # if it is a proper noun
                 continue
+            if not word.isalpha(): # if there is punctuation
+                continue
             good_words.append(word)
     unmasked = random.choice(good_words)
     return unmasked
