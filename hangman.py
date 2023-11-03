@@ -10,6 +10,8 @@ def get_random_word(wordlist="/usr/share/dict/words"):
                 continue
             if not word.isalpha(): # if there is punctuation
                 continue
+            if len(word) < 5: # Too short
+                continue
             good_words.append(word)
     unmasked = random.choice(good_words)
     return unmasked
