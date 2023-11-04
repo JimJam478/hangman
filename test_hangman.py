@@ -68,3 +68,14 @@ def test_display():
     assert display == """Secret word : --i-er-e
     turns remaining : 6
     guessed letters : ier"""  
+
+def test_gameRules_correct_input():
+    word = "universe"
+    guesses = []
+    guess = 'u'
+    tries_remaining = 6
+    
+    guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
+    assert tries_remaining == '6'
+    assert next_action == "next"
+    assert guesses == ['u']
