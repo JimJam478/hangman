@@ -38,7 +38,6 @@ def test_random_word_no_repeated_words():
 
 def test_maskedWord_no_guesses():
     word = "umbrella"
-    tries_remaining = 6
     guesses = []
-    masked_word = hangman.get_masked_word(guesses,word)
+    masked_word = hangman.get_masked_word(word,guesses)
     assert masked_word == "--------"

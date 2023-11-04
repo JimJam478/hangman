@@ -15,3 +15,14 @@ def get_random_word(wordlist="/usr/share/dict/words"):
             good_words.append(word)
     unmasked = random.choice(good_words)
     return unmasked
+
+def get_masked_word(word,guesses):
+    
+    ret = []
+    for i in word:
+        if i in guesses:
+            ret.append(i)
+        else:
+            ret.append("-")
+    return "".join(ret)
+         
