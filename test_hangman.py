@@ -31,3 +31,14 @@ def test_random_word_min_length_5():
         assert hangman.get_random_word(fname) == "pineapple"
         
     os.unlink(fname)
+
+def test_random_word_no_repeated_words():
+    words = {hangman.get_random_word() for _ in range(10)}
+    assert len(words) == 10
+
+def test_maskedWord_no_guesses():
+    word = "umbrella"
+    tries_remaining = 6
+    guesses = []
+    masked_word = hangman.get_masked_word(guesses,word)
+    assert masked_word == "--------"
