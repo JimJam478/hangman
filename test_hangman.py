@@ -41,3 +41,30 @@ def test_maskedWord_no_guesses():
     guesses = []
     masked_word = hangman.get_masked_word(word,guesses)
     assert masked_word == "--------"
+
+def test_maskedWord_oneCorrect_guess():
+    word = "universe"
+    guesses = ["u"]
+    masked_word = hangman.get_masked_word(word,guesses)
+    assert masked_word == "u-------"
+
+def test_maskedWord_twoCorrect_guess():
+    word = "universe"
+    guesses = ["e"]
+    masked_word = hangman.get_masked_word(word,guesses)
+    assert masked_word == "----e--e"
+
+def test_maskedWord_multipleCorrect_guess():
+    word = "universe"
+    guesses = ["u","e"]
+    masked_word = hangman.get_masked_word(word,guesses)
+    assert masked_word == "u---e--e"
+
+def test_display():
+    word = "universe"
+    guesses = ["i","e","r"]
+    tries_remaining = 6
+    display = hangman.get_status(secret_word, tries_remaining, guesses)
+    assert display == """Secret word : --i-er-e
+    turns remaining : 6
+    guessed letters : i e r"""  
