@@ -64,7 +64,7 @@ def test_display():
     word = "universe"
     guesses = ["i","e","r"]
     tries_remaining = 6
-    display = hangman.get_status(secret_word, tries_remaining, guesses)
+    display = hangman.get_status(word, tries_remaining, guesses)
     assert display == """Secret word : --i-er-e
     turns remaining : 6
-    guessed letters : i e r"""  
+    guessed letters : ier"""  
