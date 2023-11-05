@@ -90,3 +90,14 @@ def test_gameRules_incorrect_input():
     assert tries_remaining == 5
     assert next_action == "next"
     assert guesses == 'z'
+
+def test_gameRules_correctInput_Final_round():
+    word = "universe"
+    guesses = ['u','n','i','e','r','s']
+    guess = 'v'
+    tries_remaining = 6
+    
+    guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
+    assert tries_remaining == 6
+    assert next_action == "game_won"
+    assert guesses == 'uniers'
