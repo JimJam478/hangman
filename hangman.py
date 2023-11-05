@@ -35,5 +35,9 @@ def get_status(word, tries_remaining, guesses):
 def run_gameplay(word,guesses,guess,tries_remaining):
     if guess in word:
         guesses.append(guess)
-        guesses = "".join(guesses)       
+        guesses = "".join(guesses)
+    else:
+        tries_remaining -= 1
+        guesses.append(guess)
+        guesses = "".join(guesses)
     return guesses,tries_remaining,"next"

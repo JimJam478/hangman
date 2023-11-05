@@ -80,13 +80,13 @@ def test_gameRules_correct_input():
     assert next_action == "next"
     assert guesses == 'u'
 
-def test_gameRules_correct_input():
+def test_gameRules_incorrect_input():
     word = "universe"
     guesses = []
-    guess = 'u'
+    guess = 'z'
     tries_remaining = 6
     
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
-    assert tries_remaining == 6
+    assert tries_remaining == 5
     assert next_action == "next"
     assert guesses == 'z'
