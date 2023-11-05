@@ -112,3 +112,14 @@ def test_gameRules_incorrectInput_Final_round():
     assert tries_remaining == 0
     assert next_action == "game lost"
     assert guesses == 'abcdfz'
+
+def test_gameRules_repeated_input():
+    word = "universe"
+    guesses = ['u','r']
+    guess = 'r'
+    tries_remaining = 1
+    
+    guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
+    assert tries_remaining == 1
+    assert next_action == "next"
+    assert guesses == 'ur'
