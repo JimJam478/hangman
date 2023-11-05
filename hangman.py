@@ -72,6 +72,7 @@ def main():
         if next_action == "game won":
             print (f"You won. The word is {word}")
             break
+        
 if __name__ == "__main__":
     main()
     
