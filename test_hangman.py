@@ -111,4 +111,4 @@ def test_gameRules_incorrectInput_Final_round():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 0
     assert next_action == "game lost"
-    assert guesses == 'abcdef'
+    assert guesses == 'abcdfz'

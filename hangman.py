@@ -35,16 +35,20 @@ def get_status(word, tries_remaining, guesses):
 def run_gameplay(word,guesses,guess,tries_remaining):
     guesses.append(guess)
     guesses = "".join(guesses)
-    if guess in word:
+    if guess in word and tries_remaining >= 1:
         if "-" not in get_masked_word(word,guesses):
             return guesses,tries_remaining,"game won"
         else:
             return guesses,tries_remaining,"next"
     
-    else:
+    elif tries_remaining > 1 :
         tries_remaining -= 1
         return guesses,tries_remaining,"next"
     
+    else:
+        tries_remaining -= 1
+        return guesses,tries_remaining,"game lost"
+
 
 
     
