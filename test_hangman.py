@@ -78,7 +78,7 @@ def test_gameRules_correct_input():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 6
     assert next_action == "next"
-    assert guesses == 'u'
+    assert guesses == ['u']
 
 def test_gameRules_incorrect_input():
     word = "universe"
@@ -89,7 +89,7 @@ def test_gameRules_incorrect_input():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 5
     assert next_action == "next"
-    assert guesses == 'z'
+    assert guesses == ['z']
 
 def test_gameRules_correctInput_Final_round():
     word = "universe"
@@ -100,7 +100,7 @@ def test_gameRules_correctInput_Final_round():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 6
     assert next_action == "game won"
-    assert guesses == 'uniersv'
+    assert guesses == ['u','n','i','e','r','s','v']
 
 def test_gameRules_incorrectInput_Final_round():
     word = "universe"
@@ -111,7 +111,7 @@ def test_gameRules_incorrectInput_Final_round():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 0
     assert next_action == "game lost"
-    assert guesses == 'abcdfz'
+    assert guesses == ['a','b','c','d','f','z']
 
 def test_gameRules_repeated_input():
     word = "universe"
@@ -122,7 +122,7 @@ def test_gameRules_repeated_input():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 1
     assert next_action == "next"
-    assert guesses == 'ur'
+    assert guesses == ['u','r']
 
 def test_gameRules_non_alphabetic_input():
     word = "universe"
@@ -133,4 +133,4 @@ def test_gameRules_non_alphabetic_input():
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 1
     assert next_action == "next"
-    assert guesses == 'ur'
+    assert guesses == ['u','r']
