@@ -33,9 +33,13 @@ def get_status(word, tries_remaining, guesses):
     guessed letters : {guesses}"""
 
 def run_gameplay(word,guesses,guess,tries_remaining):
-    if guess in guesses and guess.isalpha():
+    if not guess.isalpha():
         guesses = "".join(guesses)
-        return guesses, tries_remaining,"next"
+        return guesses, tries_remaining, "next"
+
+    if guess in guesses:
+            guesses = "".join(guesses)
+            return guesses, tries_remaining, "next"
     guesses.append(guess)
     guesses = "".join(guesses)
     if guess in word and tries_remaining >= 1:
@@ -43,14 +47,15 @@ def run_gameplay(word,guesses,guess,tries_remaining):
             return guesses,tries_remaining,"game won"
         else:
             return guesses,tries_remaining,"next"
-    
+                
     elif tries_remaining > 1 :
         tries_remaining -= 1
         return guesses,tries_remaining,"next"
-    
+                
     else:
         tries_remaining -= 1
-        return guesses,tries_remaining,"game lost"
+        return guesses,tries_remaining,"game lost"               
+    
 
 
 
