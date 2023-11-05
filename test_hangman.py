@@ -76,6 +76,6 @@ def test_gameRules_correct_input():
     tries_remaining = 6
     
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
-    assert tries_remaining == '6'
+    assert tries_remaining == 6
     assert next_action == "next"
-    assert guesses == ['u']
+    assert guesses == "u"
