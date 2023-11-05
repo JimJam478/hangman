@@ -123,3 +123,14 @@ def test_gameRules_repeated_input():
     assert tries_remaining == 1
     assert next_action == "next"
     assert guesses == 'ur'
+
+def test_gameRules_non_alphabetic_input():
+    word = "universe"
+    guesses = ['u','r']
+    guess = '%'
+    tries_remaining = 1
+    
+    guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
+    assert tries_remaining == 1
+    assert next_action == "next"
+    assert guesses == 'ur'

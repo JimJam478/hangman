@@ -33,7 +33,7 @@ def get_status(word, tries_remaining, guesses):
     guessed letters : {guesses}"""
 
 def run_gameplay(word,guesses,guess,tries_remaining):
-    if guess in guesses:
+    if guess in guesses and guess.isalpha():
         guesses = "".join(guesses)
         return guesses, tries_remaining,"next"
     guesses.append(guess)
