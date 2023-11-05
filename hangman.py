@@ -33,11 +33,18 @@ def get_status(word, tries_remaining, guesses):
     guessed letters : {guesses}"""
 
 def run_gameplay(word,guesses,guess,tries_remaining):
+    guesses.append(guess)
+    guesses = "".join(guesses)
     if guess in word:
-        guesses.append(guess)
-        guesses = "".join(guesses)
+        if "-" not in get_masked_word(word,guesses):
+            return guesses,tries_remaining,"game won"
+        else:
+            return guesses,tries_remaining,"next"
+    
     else:
         tries_remaining -= 1
-        guesses.append(guess)
-        guesses = "".join(guesses)
-    return guesses,tries_remaining,"next"
+        return guesses,tries_remaining,"next"
+    
+
+
+    

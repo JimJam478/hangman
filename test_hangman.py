@@ -99,5 +99,16 @@ def test_gameRules_correctInput_Final_round():
     
     guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
     assert tries_remaining == 6
-    assert next_action == "game_won"
-    assert guesses == 'uniers'
+    assert next_action == "game won"
+    assert guesses == 'uniersv'
+
+def test_gameRules_incorrectInput_Final_round():
+    word = "universe"
+    guesses = ['a','b','c','d','f']
+    guess = 'z'
+    tries_remaining = 1
+    
+    guesses, tries_remaining,next_action = hangman.run_gameplay(word,guesses,guess,tries_remaining)
+    assert tries_remaining == 0
+    assert next_action == "game lost"
+    assert guesses == 'abcdef'
